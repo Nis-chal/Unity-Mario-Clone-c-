@@ -2,32 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
-public class ScoreScript : MonoBehaviour {
+public class ScoreScript : MonoBehaviour
+{
 
-	private Text coinTextScore;
-	private AudioSource audioManager;
-	private int scoreCount;
+    private TextMeshProUGUI coinTextScore;
+    private AudioSource audioManager;
+    private int scoreCount;
 
-	void Awake() {
-		audioManager = GetComponent<AudioSource> ();
-	}
+    void Awake()
+    {
+        audioManager = GetComponent<AudioSource>();
+    }
 
-	void Start () {
-		coinTextScore = GameObject.Find ("CoinText").GetComponent<Text> ();
-	}
+    void Start()
+    {
+        coinTextScore = GameObject.Find("CoinText").GetComponent<TextMeshProUGUI>();
+    }
 
-	void OnTriggerEnter2D(Collider2D target) {
-		if (target.tag == MyTags.COIN_TAG) {
-			
-			target.gameObject.SetActive (false);
-			scoreCount++;
+    void OnTriggerEnter2D(Collider2D target)
+    {
+        if (target.tag == MyTags.COIN_TAG)
+        {
 
-			coinTextScore.text = "x" + scoreCount;
+            target.gameObject.SetActive(false);
+            scoreCount++;
 
-			audioManager.Play ();
-		}
-	}
+            coinTextScore.text = "x " + scoreCount;
+
+            audioManager.Play();
+        }
+    }
 
 } // class
 
