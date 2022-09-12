@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class PlayerDamage : MonoBehaviour {
 
-	private Text lifeText;
+	private TextMeshProUGUI lifeText;
 	private int lifeScoreCount;
 
 	private bool canDamage;
 
 	void Awake () {
-		lifeText = GameObject.Find ("LifeText").GetComponent<Text> ();
+		lifeText = GameObject.Find ("LifeText").GetComponent<TextMeshProUGUI> ();
 		lifeScoreCount = 3;
 		lifeText.text = "x" + lifeScoreCount;
 
